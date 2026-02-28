@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 1% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 1% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 1% 13%;
+
+    --primary: 155 89% 53%;
+    --primary-foreground: 0 1% 13%;
+
+    --secondary: 358 80% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 358 80% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 155 89% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 1% 13%;
+    --sidebar-primary: 0 1% 13%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 1% 13%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 155 89% 53%;
+
+    --hero-bg: 0 1% 13%;
+    --hero-foreground: 0 0% 97%;
+    --hero-muted: 0 0% 60%;
+    --section-alt: 0 0% 95%;
+    --gradient-start: 155 89% 53%;
+    --gradient-end: 155 89% 40%;
+    --glow: 155 89% 53%;
+  }
+
+  .dark {
+    --background: 0 1% 13%;
+    --foreground: 0 0% 97%;
+
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 97%;
+
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 97%;
+
+    --primary: 155 89% 53%;
+    --primary-foreground: 0 1% 13%;
+
+    --secondary: 358 80% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 358 80% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 155 89% 53%;
+
+    --sidebar-background: 0 1% 13%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 155 89% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 155 89% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    color: #202121;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px -5px hsl(var(--glow) / 0.3);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border border-border/50;
+    background: hsl(var(--card) / 0.7);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  .hero-section {
+    background: hsl(var(--hero-bg));
+    color: hsl(var(--hero-foreground));
+  }
+
+  .nav-glass {
+    @apply backdrop-blur-xl border-b border-border/30;
+    background: hsl(var(--hero-bg) / 0.9);
+  }
+}
+
+@layer utilities {
+  .text-hero-foreground {
+    color: hsl(var(--hero-foreground));
+  }
+  .text-hero-muted {
+    color: hsl(var(--hero-muted));
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
